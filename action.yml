@@ -1,4 +1,4 @@
-name: "Build Android release APK when create new tag"
+name: "Build and Publish release APK from your Android project"
 branding:
   icon: "package"
   color: "red"
