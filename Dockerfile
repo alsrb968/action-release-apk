@@ -6,8 +6,8 @@ LABEL "com.github.actions.description"="Build & Publish Release APK on Github"
 LABEL "com.github.actions.icon"="package"
 LABEL "com.github.actions.color"="red"
 
-LABEL "repository"="https://github.com/kyze8439690/action-release-releaseapk"
-LABEL "maintainer"="kyze8439690"
+LABEL "repository"="https://github.com/alsrb968/action-release-apk"
+LABEL "maintainer"="alsrb968"
 
 RUN apt update \
 	&& apt -y upgrade \
