@@ -1,41 +1,44 @@
-# action-release-releaseapk
+# action-release-apk
 
 ![screenshot](screenshot.png)
 
-🕷 Build and release release APK when your push a new tag
+🕷 Build and Publish release APK when your push a new tag
 
 ## Usage
 
-To use the action simply add the following lines to your `.github/workflows/android.yml` and provide the required Secrets and Environment variables.
+To use the action simply add the following lines to your `.github/workflows/publish.yml` and provide the required Secrets and Environment variables.
 
 #### YML
 ```
-name: Build & Publish Release APK
+name: Publish Release APK
 
 on:
   push:
-    tags:
-      - '*'
+    tags: [ "*" ]
 
 jobs:
-  Gradle:
+  publish:
+
     runs-on: ubuntu-latest
+
     steps:
-    - name: checkout code
-      uses: actions/checkout@v2
-    - name: setup jdk
-      uses: actions/setup-java@v1
+    - uses: actions/checkout@v3
+    - name: set up JDK 11
+      uses: actions/setup-java@v3
       with:
-        java-version: 11
-    - name: Make Gradle executable
-      run: chmod +x ./gradlew
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
     - name: Build Release APK
       run: ./gradlew assembleRelease
-    - name: Releasing using Hub
-      uses: kyze8439690/action-release-releaseapk@master
+    - name: Publish APK
+      uses: alsrb968/action-release-apk@master
       env:
-       GITHUB_TOKEN: ${{ secrets.TOKEN }}
-       APP_FOLDER: app
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        APP_FOLDER: app
 ```
 
 ### Secrets
