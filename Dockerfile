@@ -6,7 +6,7 @@ LABEL "com.github.actions.description"="Build & Publish Release APK on Github"
 LABEL "com.github.actions.icon"="package"
 LABEL "com.github.actions.color"="red"
 
-LABEL "repository"="https://github.com/alsrb968/action-release-apk"
+LABEL "repository"="alsrb968/action-release-apk"
 LABEL "maintainer"="alsrb968"
 
 RUN apt update \
